@@ -4,16 +4,16 @@ const db = require("../models");
 // Connect to MongoDB via Mongoose
 mongoose.connect(
 	// process.env.MONGODB_URI || "mongodb://localhost/historyPortal"
-	process.env.MONGODB_URI || "mongodb://final-project:1history@ds041586.mlab.com:41586/heroku_1thwh90l"
+	process.env.MONGODB_URI || "mongodb://a-new-game:1history@ds331568.mlab.com:31568/heroku_vm824khm"
 );
 
 // create the data objects
-const presidentSeed = [
+const presidentsSeed = [
 	{
 		"number": 1,
 		"president": "George Washington",
-		"birth_year": 1732,
-		"death_year": 1799,
+		"birth_year": "1732",
+		"death_year": "1799",
 		"took_office": "1789-04-30",
 		"left_office": "1797-03-04",
 		"party": "No Party"
@@ -21,8 +21,8 @@ const presidentSeed = [
 	{
 		"number": 2,
 		"president": "John Adams",
-		"birth_year": 1735,
-		"death_year": 1826,
+		"birth_year": "1735",
+		"death_year": "1826",
 		"took_office": "1797-03-04",
 		"left_office": "1801-03-04",
 		"party": "Federalist"
@@ -30,24 +30,24 @@ const presidentSeed = [
 	{
 		"number": 3,
 		"president": "Thomas Jefferson",
-		"birth_year": 1743,
-		"death_year": 1826,
+		"birth_year": "1743",
+		"death_year": "1826",
 		"took_office": "1801-03-04",
 		"left_office": "1809-03-04",
 		"party": "Democratic-Republican"
 	},
 	{
 		"number": 4, "president": "James Madison",
-		"birth_year": 1751,
-		"death_year": 1836,
+		"birth_year": "1751",
+		"death_year": "1836",
 		"took_office": "1809-03-04",
 		"left_office": "1817-03-04",
 		"party": "Democratic-Republican"
 	},
 	{
 		"number": 5, "president": "James Monroe",
-		"birth_year": 1758,
-		"death_year": 1831,
+		"birth_year": "1758",
+		"death_year": "1831",
 		"took_office": "1817-03-04",
 		"left_office": "1825-03-04",
 		"party": "Democratic-Republican"
@@ -115,11 +115,11 @@ const presidentSeed = [
 	{ "number": 43, "president": "George W. Bush", "birth_year": 1946, "death_year": null, "took_office": "2001-01-20", "left_office": "2009-01-20", "party": "Republican" },
 	{ "number": 44, "president": "Barack Obama", "birth_year": 1961, "death_year": null, "took_office": "2009-01-20", "left_office": "2017-01-20", "party": "Democratic" },
 	{ "number": 45, "president": "Donald J. Trump", "birth_year": 1946, "death_year": null, "took_office": "2017-01-20", "left_office": null, "party": "Republican" }
-]
+];
 
 
-db.President.remove({})
-	.then(() => db.President.collection.insertMany(presidentSeed))
+db.Presidents.remove({})
+	.then(() => db.Presidents.collection.insertMany(presidentsSeed))
 	.then(data => {
 		console.log(data.result.n + " records inserted!");
 		process.exit(0);

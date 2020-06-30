@@ -12,7 +12,7 @@ export default class Questions extends Component {
         questionSet: "getQuestions",
         selectedOption: '',
         presNum: 0,
-
+        pres:""
     }
 
     constructor(props) {
@@ -52,6 +52,7 @@ export default class Questions extends Component {
                 pathname: this.state.redirect,
                 state: {
                     id: this.props.location.state.id,
+                    pres: this.state.pres._id
                 }
             }} />
         }
@@ -65,14 +66,21 @@ export default class Questions extends Component {
 
                         <div className="card ">
                             {this.state.presidents.map(pres => (
-                                <div key={pres._id} className="card-body">
-                                    <h4>{pres.president}</h4>
+                                <div key={ pres._id } className="card-body">
+                                    <h4>{ pres.president }</h4>
                                     {pres.number}<hr />
                                     birth year: { pres.birth_year}  <br />
                                     took office: { pres.took_office}<br />
                                     left office: { pres.left_office}<br />
                                     death year: { pres.death_year}<br />
                                     party: { pres.party}<hr />
+                                    <p>
+                                        <a href="/play" className="btn btn-info">play again</a>
+                                    </p>
+                                    <p>
+                                        <a href="/play" data={ pres._id } className="btn btn-info">{ pres._id } : more about this president</a>
+                                    </p>
+                                    <hr />
                                 </div>
                             ))}
                         </div>
@@ -86,14 +94,7 @@ export default class Questions extends Component {
                             type="submit">next President
                                 </button>
                     </p>
-                    <hr />
-                    <p>
-                        <button
-                            onClick={() => this.handleFormSubmit()}
-                            className="save btn btn-info"
-                            type="submit">back to landing page
-                                </button>
-                    </p>
+
 
                 </div>
             </Container>

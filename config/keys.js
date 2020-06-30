@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 module.exports = {
-    mongoURI: "mongodb://localhost/historyPortal",
-    // mongoURI: "mongodb://social-quiz-app:1history@ds047732.mlab.com:47732/heroku_q90mkjbx",
+    // mongoURI: "mongodb://localhost/historyPortal",
+    mongoURI:"mongodb://a-new-game:1history@ds331568.mlab.com:31568/heroku_vm824khm",
     secretOrKey: "secret"
 }
